@@ -1,6 +1,40 @@
-# Processes
+# 2/Processes
 
-## Notes
+## SUMMARY
+- A process is a program in execution, and the status of the current activity of a process is represented by the program counter, as well as other registers.
+- The layout of a process in memory is represented by four different sections: (1) text, (2) data, (3) heap, and (4) stack.
+- As a process executes, it changes state. There are four general states of a
+process: (1) ready, (2) running, (3) waiting, and (4) terminated.
+- A process control block (PCB) is the kernel data structure that represents a
+process in an operating system.
+- The role of the process scheduler is to select an available process to run on
+a CPU.
+- An operating system performs a context switch when it switches from
+running one process to running another.
+- The fork() and CreateProcess() system calls are used to create processes on UNIX and Windows systems, respectively.
+- When shared memory is used for communication between processes, two
+(or more) processes share the same region of memory. POSIX provides an
+API for shared memory.
+- Two processes may communicate by exchanging messages with one another using message passing. The Mach operating system uses message passing as its primary form of interprocess communication. Windows provides a form of message passing as well.
+- A pipe provides a conduit for two processes to communicate. There are
+two forms of pipes, ordinary and named. Ordinary pipes are designed for
+communication between processes that have a parent–child relationship.
+Named pipes are more general and allow several processes to communicate.
+- UNIX systems provide ordinary pipes through the pipe() system call.
+Ordinary pipes have a read end and a write end. A parent process can, for example, send data to the pipe using its write end, and the child process can read it from its read end. Named pipes in UNIX are termed FIFOs.
+- Windows systems also provide two forms of pipes—anonymous and
+named pipes. Anonymous pipes are similar to UNIX ordinary pipes. They
+are unidirectional and employ parent–child relationships between the
+communicating processes. Named pipes offer a richer form of interprocess
+communication than the UNIX counterpart, FIFOs.
+- Two common forms of client–server communication are sockets and
+remote procedure calls (RPCs). Sockets allow two processes on different
+machines to communicate over a network. RPCs abstract the concept of
+function (procedure) calls in such a way that a function can be invoked on
+another process that may reside on a separate computer.
+- The Android operating system uses RPCs as a form of interprocess communication using its binder framework.
+
+## NOTES
 >   We emphasize that a program by itself is not a process. A program is a
 passive entity, such as a file containing a list of instructions stored on disk
 (often called an executable fil ). In contrast, a process is an active entity,
@@ -97,36 +131,3 @@ them.
 > Asocket is defined as an endpoint for communication. Apair of processes communicating over a network employs a pair of sockets—one for each process.
 A socket is identified by an IP address concatenated with a port number. 
 
-## summary
-- A process is a program in execution, and the status of the current activity of a process is represented by the program counter, as well as other registers.
-- The layout of a process in memory is represented by four different sections: (1) text, (2) data, (3) heap, and (4) stack.
-- As a process executes, it changes state. There are four general states of a
-process: (1) ready, (2) running, (3) waiting, and (4) terminated.
-- A process control block (PCB) is the kernel data structure that represents a
-process in an operating system.
-- The role of the process scheduler is to select an available process to run on
-a CPU.
-- An operating system performs a context switch when it switches from
-running one process to running another.
-- The fork() and CreateProcess() system calls are used to create processes on UNIX and Windows systems, respectively.
-- When shared memory is used for communication between processes, two
-(or more) processes share the same region of memory. POSIX provides an
-API for shared memory.
-- Two processes may communicate by exchanging messages with one another using message passing. The Mach operating system uses message passing as its primary form of interprocess communication. Windows provides a form of message passing as well.
-- A pipe provides a conduit for two processes to communicate. There are
-two forms of pipes, ordinary and named. Ordinary pipes are designed for
-communication between processes that have a parent–child relationship.
-Named pipes are more general and allow several processes to communicate.
-- UNIX systems provide ordinary pipes through the pipe() system call.
-Ordinary pipes have a read end and a write end. A parent process can, for example, send data to the pipe using its write end, and the child process can read it from its read end. Named pipes in UNIX are termed FIFOs.
-- Windows systems also provide two forms of pipes—anonymous and
-named pipes. Anonymous pipes are similar to UNIX ordinary pipes. They
-are unidirectional and employ parent–child relationships between the
-communicating processes. Named pipes offer a richer form of interprocess
-communication than the UNIX counterpart, FIFOs.
-- Two common forms of client–server communication are sockets and
-remote procedure calls (RPCs). Sockets allow two processes on different
-machines to communicate over a network. RPCs abstract the concept of
-function (procedure) calls in such a way that a function can be invoked on
-another process that may reside on a separate computer.
-- The Android operating system uses RPCs as a form of interprocess communication using its binder framework.
