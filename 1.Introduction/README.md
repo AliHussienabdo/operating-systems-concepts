@@ -1,4 +1,4 @@
-# 1/Introduction
+## 1.Introduction
 
 ## SUMMARY
 - An operating system is software that manages the computer hardware, as
