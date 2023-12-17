@@ -121,6 +121,8 @@
   often easier to have separate queues for each distinct priority.
   This approach—known as multilevel queue.
 
+## SUMMARY
+
 - CPU scheduling is the task of selecting a waiting process from the ready
   queue and allocating the CPU to it. The CPU is allocated to the selected
   process by the dispatcher.
@@ -148,13 +150,7 @@
 - Multilevel feedback queues are similar to multilevel queues, except that a
   process may migrate between different queues.
 
-- Multicore processors place one or more CPUs on the same physical chip,
-  and each CPU may have more than one hardware thread. From the perspective of the operating system, each hardware thread appears to be a logical CPU.
+## Practice Exercises
 
-- Load balancing on multicore systems equalizes loads between CPU cores,
-  although migrating threads between cores to balance loads may invalidate
-  cache contents and therefore may increase memory access times.
-  
-- Soft real-time scheduling gives priority to real-time tasks over non-realtime tasks. Hard real-time scheduling provides timing guarantees for realtime tasks,
-
-- Rate-monotonic real-time scheduling schedules periodic tasks using a static priority policy with preemption.
+- Explain the difference between preemptive and nonpreemptive schedul-ing?
+  - Preemptive scheduling allows a process to be interrupted in the midst ofits execution, taking the CPU away and allocating it to another process.Nonpreemptive scheduling ensures that a process leave the CPU only when it ﬁnishes with its current CPU burst.
