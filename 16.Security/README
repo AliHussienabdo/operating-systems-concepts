@@ -1,0 +1,11 @@
+# Security
+
+## NOTES
+
+- Both protection and security are vital to computer systems.Security is a measure of confidence that the integrity of
+  a system and its data will be preserved. Protection is the set of mechanisms that control the access of processes and users to the resources defined by a computer system.
+
+- Security involves guarding computer resources against unauthorized access, malicious destruction or alteration, and accidental introduction of inconsistency.
+
+- We say that a system is secure if its resources are used and accessed
+as intended under all circumstances. 
