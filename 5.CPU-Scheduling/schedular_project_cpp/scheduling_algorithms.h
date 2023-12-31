@@ -12,25 +12,25 @@
 
 void Schedul(std::vector<Task>& tasks);
 void ExecuteTask(std::string taskName, int time);
+void FinishMessage(std::string taskName, int time);
 void printTasks(std::vector<Task>& tasks);
 
 // FCFS -> first come first served
 void FCFS(std::vector<Task> tasks){
-    std::cout << "\n\n*** FCFS -> first come first served ***" << std::endl;
+    std::cout << "\n\n\033[0;31m*** FCFS -> first come first served ***\033[0m" << std::endl;
     printTasks(tasks);
 
     int time = 0;
     for(Task& T : tasks){
         ExecuteTask(T.getName(), T.getBrust());
         time += T.getBrust();
-        std::cout << "Task: " << T.getName() << ", has Finished after: " << time << " Seconds." << std::endl;
-        
+        FinishMessage(T.getName(), time);        
     }
 }
 
 // SJF -> Shortest-job-first 
 void SJF(std::vector<Task> tasks){
-    std::cout << "\n\n*** SJF -> Shortest-job-first ***" << endl;
+    std::cout << "\n\n\033[0;31m*** SJF -> Shortest-job-first ***\033[0m" << endl;
     printTasks(tasks);
 
     int time = 0;
@@ -43,14 +43,13 @@ void SJF(std::vector<Task> tasks){
     for(Task& T : tasks){
         ExecuteTask(T.getName(), T.getBrust());
         time += T.getBrust();
-        std::cout << "Task: " << T.getName() << ", has Finished after: " << time << " Seconds." << std::endl;
-        
+        FinishMessage(T.getName(), time);
     }
 }
 
 // Priority scheduling
 void PriorityScheduling(std::vector<Task> tasks){
-    std::cout << "\n\n*** Priority scheduling ***" << std::endl;
+    std::cout << "\n\n\033[0;31m*** Priority scheduling ***\033[0m" << std::endl;
     printTasks(tasks);
 
     int time = 0;
@@ -63,14 +62,13 @@ void PriorityScheduling(std::vector<Task> tasks){
     for(Task& T : tasks){
         ExecuteTask(T.getName(), T.getBrust());
         time += T.getBrust();
-        std::cout << "Task: " << T.getName() << ", has Finished after: " << time << " Seconds." << std::endl;
-        
+        FinishMessage(T.getName(), time);        
     }
 }
 
 // Round-robin (RR) scheduling
 void RoundRobin(std::vector<Task> tasks){
-    std::cout << "\n\n*** Round-robin (RR) scheduling ***" << std::endl;
+    std::cout << "\n\n\033[0;31m*** Round-robin (RR) scheduling ***\033[0m" << std::endl;
     printTasks(tasks);
 
     queue<Task> taskQueue;
@@ -93,7 +91,7 @@ void RoundRobin(std::vector<Task> tasks){
         if(T.getBrust() > 0){
             taskQueue.push(T);
         } else {
-            std::cout << "Task: " << T.getName() << ", has Finished after: " << time << " Seconds." << std::endl;
+            FinishMessage(T.getName(), time);
         }
 
         
@@ -103,6 +101,10 @@ void RoundRobin(std::vector<Task> tasks){
 void ExecuteTask(std::string taskName, int time){
     cout << "Task: " << taskName << ", is running" << endl;
     std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(time));
+}
+
+void FinishMessage(std::string taskName, int time){
+    std::cout << "\033[32m" << "Task: " << taskName << ", has Finished after: " << time << " Seconds." << "\033[0m" << std::endl;
 }
 
 void printTasks(std::vector<Task>& tasks){
